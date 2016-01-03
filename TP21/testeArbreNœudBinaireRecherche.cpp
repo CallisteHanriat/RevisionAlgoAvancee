@@ -756,9 +756,9 @@ int main() {
 
     testeHauteur();
 
-    //testeGetNombreNoeuds();
+    testeGetNombreNoeuds();
 
-    //testeGetNombreFeuilles();
+    testeGetNombreFeuilles();
 
     //testeEstInfoPresente();
 

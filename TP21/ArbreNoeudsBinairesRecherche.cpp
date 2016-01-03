@@ -29,12 +29,12 @@ int ArbreNoeudBinaireRecherche<TypeInfo>::getHauteurWorker(NoeudBinaire<TypeInfo
      * ptrRac == nullptr -> return 0;
      */
 
-    if(ptrRac) {
-        return max(getHauteurWorker(ptrRac->getPtrFilsGauche()), getHauteurWorker(ptrRac->getPtrFilsDroit()))+1;
+    if (ptrRac) {
+        return max(getHauteurWorker(ptrRac->getPtrFilsGauche()), getHauteurWorker(ptrRac->getPtrFilsDroit())) + 1;
     } else {
         return 0;
     }
-} 
+}
 
 template<class TypeInfo>
 int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreDeNoeudsWorker(NoeudBinaire<TypeInfo>* ptrRac) const {
@@ -44,13 +44,13 @@ int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreDeNoeudsWorker(NoeudBinaire<T
      */
 
     if (ptrRac != nullptr) {
-        return getNombreDeNoeudsWorker(ptrRac->getPtrFilsGauche()) + getNombreDeNoeudsWorker(ptrRac->getPtrFilsDroit()) +1;
+        return getNombreDeNoeudsWorker(ptrRac->getPtrFilsGauche()) + getNombreDeNoeudsWorker(ptrRac->getPtrFilsDroit()) + 1;
     } else {
         return 0;
     }
 
 
-} 
+}
 
 template<class TypeInfo>
 void ArbreNoeudBinaireRecherche<TypeInfo>::videWorker(NoeudBinaire<TypeInfo>* ptrRac) {
@@ -93,7 +93,7 @@ void ArbreNoeudBinaireRecherche<TypeInfo>::insertWorker(NoeudBinaire<TypeInfo>*&
      *          >> (ptrRac->getInfo < uneInfo) -> insertWorker(ptrRac->getPtrRefFilsDroit(), nouvelleInfo)  
      */
 
-    
+
     if (ptrRac == nullptr) {
         ptrRac = new NoeudBinaire<TypeInfo> (nouvelleInfo, nullptr, nullptr);
     } else {
@@ -103,7 +103,7 @@ void ArbreNoeudBinaireRecherche<TypeInfo>::insertWorker(NoeudBinaire<TypeInfo>*&
             insertWorker(ptrRac->getRefPtrFilsDroit(), nouvelleInfo);
         }
     }
-} 
+}
 
 template<class TypeInfo>
 NoeudBinaire<TypeInfo>* ArbreNoeudBinaireRecherche<TypeInfo>::supprimeInfo(NoeudBinaire<TypeInfo>* ptrRac,
@@ -227,10 +227,14 @@ int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreDeFeuillesWorker(const NoeudB
     /*
      * À COMPLETER : IMPLANTATION
      */
-
-    // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
-    return 0;
-
+    if (ptrRac != nullptr) {
+        if (ptrRac->getPtrFilsGauche() == nullptr && ptrRac->getPtrFilsDroit() == nullptr)
+            return 1;
+        else
+            return (getNombreDeFeuillesWorker(ptrRac->getPtrFilsGauche()) + getNombreDeFeuillesWorker(ptrRac->getPtrFilsDroit()));
+    } else {
+        return 0;
+    }
 }
 
 template<class TypeInfo>
@@ -306,7 +310,7 @@ void ArbreNoeudBinaireRecherche<TypeInfo>::affichePrefixeWorker(const NoeudBinai
         cout << ptrRac->getInfo() << " ";
         affichePrefixeWorker(ptrRac->getPtrFilsGauche());
         affichePrefixeWorker(ptrRac->getPtrFilsDroit());
-    } 
+    }
 }
 
 template<class TypeInfo>
