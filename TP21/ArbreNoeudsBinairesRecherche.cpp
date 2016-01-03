@@ -196,15 +196,18 @@ bool ArbreNoeudBinaireRecherche<TypeInfo>::estInfoPresenteWorker(NoeudBinaire<Ty
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
 
-    /*
-     * À COMPLETER : IMPLANTATION
-     */
+    if (ptrRac != nullptr) {
+        if (infoCible < ptrRac->getInfo()) {
+            return estInfoPresenteWorker(ptrRac->getPtrFilsGauche(), infoCible);
+        } else if (infoCible > ptrRac->getInfo()) 
+            return estInfoPresenteWorker(ptrRac->getPtrFilsDroit(), infoCible);
+        else 
+            return true;
+    } else
+        return false;
 
-    // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
-    return true;
 
-
-} // end estInfoPresenteWorker
+} 
 
 
 //////////////////////////////////////////////////////////////
@@ -223,10 +226,7 @@ int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreDeFeuillesWorker(const NoeudB
     /*
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
-
-    /*
-     * À COMPLETER : IMPLANTATION
-     */
+    
     if (ptrRac != nullptr) {
         if (ptrRac->getPtrFilsGauche() == nullptr && ptrRac->getPtrFilsDroit() == nullptr)
             return 1;
