@@ -38,21 +38,19 @@ int ArbreNoeudBinaireRecherche<TypeInfo>::getHauteurWorker(NoeudBinaire<TypeInfo
 
 template<class TypeInfo>
 int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreDeNoeudsWorker(NoeudBinaire<TypeInfo>* ptrRac) const {
-
-
     /*
-     * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
+     * ptrRac != nullptr -> return getNombreDeNoeudsWorker(ptrRac->getPtrFilsGauche()) + getNombreDeNoeudsWorker(ptrRac->getPtrFilsDroit()) +1;
+     * ptrRac == nullptr -> return 0;
      */
 
-    /*
-     * À COMPLETER : IMPLANTATION
-     */
+    if (ptrRac != nullptr) {
+        return getNombreDeNoeudsWorker(ptrRac->getPtrFilsGauche()) + getNombreDeNoeudsWorker(ptrRac->getPtrFilsDroit()) +1;
+    } else {
+        return 0;
+    }
 
-    // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
-    return 0;
 
-
-} // end getNombreDeNoeudsWorker
+} 
 
 template<class TypeInfo>
 void ArbreNoeudBinaireRecherche<TypeInfo>::videWorker(NoeudBinaire<TypeInfo>* ptrRac) {
