@@ -24,21 +24,17 @@ using namespace std;
 
 template<class TypeInfo>
 int ArbreNoeudBinaireRecherche<TypeInfo>::getHauteurWorker(NoeudBinaire<TypeInfo>* ptrRac) const {
-
-
     /*
-     * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
+     * ptrRac != nullptr -> return max(selfCall(ptrRac->getFG), selfCall(ptrRac->getFD))+1
+     * ptrRac == nullptr -> return 0;
      */
 
-    /*
-     * À COMPLETER : IMPLANTATION
-     */
-
-    // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
-    return 0;
-
-
-} // end getHauteurWorker
+    if(ptrRac) {
+        return max(getHauteurWorker(ptrRac->getPtrFilsGauche()), getHauteurWorker(ptrRac->getPtrFilsDroit()))+1;
+    } else {
+        return 0;
+    }
+} 
 
 template<class TypeInfo>
 int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreDeNoeudsWorker(NoeudBinaire<TypeInfo>* ptrRac) const {
@@ -340,7 +336,6 @@ void ArbreNoeudBinaireRecherche<TypeInfo>::affichePostfixeWorker(const NoeudBina
      *                      selfCall(ptrRac->getFD)
      *                      cout << ptrRac
      */
-
 
     if (ptrRac) {
         affichePrefixeWorker(ptrRac->getPtrFilsGauche());
