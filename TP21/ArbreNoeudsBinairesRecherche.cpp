@@ -1,9 +1,12 @@
+
+#include "NoeudBinaire.h"
+
 //  HB librement inspiré de
 //  Data Abstraction & Problem Solving with C++: Walls and Mirrors
 //  Frank M. Carrano and Tim Henry.
 //  2013 – Pearson Education
 
-/** @file ArbreNoeudsBinairesRecherche.cpp */
+/* @file ArbreNoeudsBinairesRecherche.cpp */
 
 #ifdef _ARBRE_NOEUDS_BINAIRES_RECHERCHE
 
@@ -21,38 +24,38 @@ using namespace std;
 
 template<class TypeInfo>
 int ArbreNoeudBinaireRecherche<TypeInfo>::getHauteurWorker(NoeudBinaire<TypeInfo>* ptrRac) const {
-    
-    
+
+
     /*
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
-    
+
     /*
      * À COMPLETER : IMPLANTATION
      */
-    
+
     // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
     return 0;
-    
-    
+
+
 } // end getHauteurWorker
 
 template<class TypeInfo>
 int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreDeNoeudsWorker(NoeudBinaire<TypeInfo>* ptrRac) const {
-        
-    
+
+
     /*
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
-    
+
     /*
      * À COMPLETER : IMPLANTATION
      */
-    
+
     // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
     return 0;
-    
-    
+
+
 } // end getNombreDeNoeudsWorker
 
 template<class TypeInfo>
@@ -86,18 +89,27 @@ NoeudBinaire<TypeInfo>* ArbreNoeudBinaireRecherche<TypeInfo>::copieArbre(const N
 } // end copieArbre
 
 template<class TypeInfo>
-void ArbreNoeudBinaireRecherche<TypeInfo>::insertWorker(NoeudBinaire<TypeInfo>*& ptrRac, const TypeInfo& nouvelleInfo) {   
-    
+void ArbreNoeudBinaireRecherche<TypeInfo>::insertWorker(NoeudBinaire<TypeInfo>*& ptrRac, const TypeInfo& nouvelleInfo) {
+
     /*
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
+     * ptrRac == nullptr -> ptrRac = new NoeudBinaire<TypeInfo>(nouvelleInfo, nullptr, nullptr)
+     * ptrRac != nullptr ->
+     *          >> (ptrRac->getInfo >= uneInfo) -> insertWorker(ptrRac->getPtrRefFilsGauche(), nouvelleInfo);
+     *          >> (ptrRac->getInfo < uneInfo) -> insertWorker(ptrRac->getPtrRefFilsDroit(), nouvelleInfo)  
      */
+
     
-    /*
-     * À COMPLETER : IMPLANTATION
-     */
-    
-    
-} // end insertWorker
+    if (ptrRac == nullptr) {
+        ptrRac = new NoeudBinaire<TypeInfo> (nouvelleInfo, nullptr, nullptr);
+    } else {
+        if (ptrRac->getInfo() >= nouvelleInfo) {
+            insertWorker(ptrRac->getRefPtrFilsGauche(), nouvelleInfo);
+        } else {
+            insertWorker(ptrRac->getRefPtrFilsDroit(), nouvelleInfo);
+        }
+    }
+} 
 
 template<class TypeInfo>
 NoeudBinaire<TypeInfo>* ArbreNoeudBinaireRecherche<TypeInfo>::supprimeInfo(NoeudBinaire<TypeInfo>* ptrRac,
@@ -184,20 +196,20 @@ NoeudBinaire<TypeInfo>* ArbreNoeudBinaireRecherche<TypeInfo>::supprimeNoeudLePlu
 template<class TypeInfo>
 bool ArbreNoeudBinaireRecherche<TypeInfo>::estInfoPresenteWorker(NoeudBinaire<TypeInfo>* ptrRac,
         const TypeInfo& infoCible) const {
-        
-    
+
+
     /*
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
-    
+
     /*
      * À COMPLETER : IMPLANTATION
      */
-    
+
     // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
     return true;
-    
-    
+
+
 } // end estInfoPresenteWorker
 
 
@@ -212,36 +224,36 @@ bool ArbreNoeudBinaireRecherche<TypeInfo>::estInfoPresenteWorker(NoeudBinaire<Ty
  */
 template<class TypeInfo>
 int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreDeFeuillesWorker(const NoeudBinaire<TypeInfo>* ptrRac) const {
-        
-    
+
+
     /*
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
-    
+
     /*
      * À COMPLETER : IMPLANTATION
      */
-    
+
     // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
     return 0;
-    
+
 }
 
 template<class TypeInfo>
 bool ArbreNoeudBinaireRecherche<TypeInfo>::aMemeGeometrieQueWorker(const NoeudBinaire<TypeInfo>* monPtrRac, const NoeudBinaire<TypeInfo>* sonPtrRac) const {
-        
-    
+
+
     /*
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
-    
+
     /*
      * À COMPLETER : IMPLANTATION
      */
-    
+
     // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
     return true;
-  
+
 }
 
 /**
@@ -251,36 +263,36 @@ bool ArbreNoeudBinaireRecherche<TypeInfo>::aMemeGeometrieQueWorker(const NoeudBi
  */
 template<class TypeInfo>
 TypeInfo ArbreNoeudBinaireRecherche<TypeInfo>::getMaxWorker(const NoeudBinaire<TypeInfo>* ptrRac) const {
-        
-    
+
+
     /*
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
-    
+
     /*
      * À COMPLETER : IMPLANTATION
      */
-    
+
     // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
     return 0;
-    
+
 }
 
 template<class TypeInfo>
 int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreOccurrencesWorker(const NoeudBinaire<TypeInfo>* ptrRac, const TypeInfo& uneInfo) const {
-        
-    
+
+
     /*
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
-    
+
     /*
      * À COMPLETER : IMPLANTATION
      */
-    
+
     // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
     return 0;
-    
+
 }
 
 //////////////////////////////////////////////////////////////
@@ -289,44 +301,52 @@ int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreOccurrencesWorker(const Noeud
 
 template<class TypeInfo>
 void ArbreNoeudBinaireRecherche<TypeInfo>::affichePrefixeWorker(const NoeudBinaire<TypeInfo>* ptrRac) const {
-        
-    
     /*
-     * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
+     * prtRac != nullptr -> 
+     *                      cout << ptrRac
+     *                      selfCall(ptrRac->getFG)
+     *                      selfCall(ptrRac->getFD)
      */
-    
-    /*
-     * À COMPLETER : IMPLANTATION
-     */
-        
+
+    if (ptrRac != nullptr) {
+        cout << ptrRac->getInfo() << " ";
+        affichePrefixeWorker(ptrRac->getPtrFilsGauche());
+        affichePrefixeWorker(ptrRac->getPtrFilsDroit());
+    } 
 }
 
 template<class TypeInfo>
 void ArbreNoeudBinaireRecherche<TypeInfo>::afficheInfixeWorker(const NoeudBinaire<TypeInfo>* ptrRac) const {
-        
-    
     /*
-     * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
+     * prtRac != nullptr -> 
+     *                      selfCall(ptrRac->getFG)
+     *                      cout << ptrRac
+     *                      selfCall(ptrRac->getFD)
      */
-    
-    /*
-     * À COMPLETER : IMPLANTATION
-     */
-        
+
+
+    if (ptrRac) {
+        affichePrefixeWorker(ptrRac->getPtrFilsGauche());
+        cout << ptrRac->getInfo() << " ";
+        affichePrefixeWorker(ptrRac->getPtrFilsDroit());
+    }
 }
 
 template<class TypeInfo>
 void ArbreNoeudBinaireRecherche<TypeInfo>::affichePostfixeWorker(const NoeudBinaire<TypeInfo>* ptrRac) const {
-        
-    
     /*
-     * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
+     * prtRac != nullptr -> 
+     *                      selfCall(ptrRac->getFG)
+     *                      selfCall(ptrRac->getFD)
+     *                      cout << ptrRac
      */
-    
-    /*
-     * À COMPLETER : IMPLANTATION
-     */
-        
+
+
+    if (ptrRac) {
+        affichePrefixeWorker(ptrRac->getPtrFilsGauche());
+        affichePrefixeWorker(ptrRac->getPtrFilsDroit());
+        cout << ptrRac->getInfo() << " ";
+    }
 }
 
 
