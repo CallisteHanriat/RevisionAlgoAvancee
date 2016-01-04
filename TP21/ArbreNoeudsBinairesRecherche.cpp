@@ -193,8 +193,15 @@ bool ArbreNoeudBinaireRecherche<TypeInfo>::estInfoPresenteWorker(NoeudBinaire<Ty
 
 
     /*
-     * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
+     * ptrRac != nullptr 
+     *          >>infoCible < ptrRac->getInfo() -> {estInfoPresenteWorker(FG, infoCible)}
+     *          >>infoCible == ptrRac->getInfo() -> {true}
+     *          >> infoCible > ptrRac->getInfo() -> {estInfoPresenteWorker(FD, infoCible}
+     * 
      */
+    
+    
+    
 
     if (ptrRac != nullptr) {
         if (infoCible < ptrRac->getInfo()) {
@@ -242,16 +249,19 @@ bool ArbreNoeudBinaireRecherche<TypeInfo>::aMemeGeometrieQueWorker(const NoeudBi
 
 
     /*
-     * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
+     * monPtrRac != nullptr && sonPtrRac != nullptr -> {aMemeGeometrieQueWorker(FG, FG) && aMemeGeometrieQueWorker(FD,FD)
+     * monPtrRac == nullptr && sonPtrRac == nullptr -> {true}
+     * sinon -> {false}
      */
 
-    if (monPtrRac != nullptr) {
-        return aMemeGeometrieQueWorker()
-    } else {
+    if (monPtrRac != nullptr && sonPtrRac != nullptr) {
+        return aMemeGeometrieQueWorker(monPtrRac->getPtrFilsGauche(), sonPtrRac->getPtrFilsGauche()) &&
+                aMemeGeometrieQueWorker(monPtrRac->getPtrFilsDroit(), sonPtrRac->getPtrFilsDroit());  
+    } else if (monPtrRac == nullptr && sonPtrRac == nullptr){
         return true;
+    } else {
+        return false;
     }
-    
-
 }
 
 /**
@@ -261,10 +271,9 @@ bool ArbreNoeudBinaireRecherche<TypeInfo>::aMemeGeometrieQueWorker(const NoeudBi
  */
 template<class TypeInfo>
 TypeInfo ArbreNoeudBinaireRecherche<TypeInfo>::getMaxWorker(const NoeudBinaire<TypeInfo>* ptrRac) const {
-
-
     /*
-     * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
+     * ptrRac->getFilsDroit == nullptr -> {ptrRac->getInfo());
+     * sinon -> {getMaxWorker(ptrRac->getFilsDroit)}
      */
     if (ptrRac->getPtrFilsDroit() == nullptr) {
         return ptrRac->getInfo();
@@ -278,12 +287,12 @@ int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreOccurrencesWorker(const Noeud
 
 
     /*
-     * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
+     * ptrRac != nullptr 
+     *          >>uneInfo < ptrRac->getInfo() -> {getNombreOccurrencesWorker(FG, uneInfo)}
+     *          >>uneInfo == ptrRac->getInfo() -> {getNombreOccurrencesWorker(FG, uneInfo)+1}
+     *          >>uneInfo > ptrRac->getInfo() -> {getNombreOccurrencesWorker(FD, uneInfo)}
      */
 
-    /*
-     * À COMPLETER : IMPLANTATION
-     */
     if (ptrRac != nullptr) {
         if (uneInfo < ptrRac->getInfo()) {
             return getNombreOccurrencesWorker(ptrRac->getPtrFilsGauche(), uneInfo);
