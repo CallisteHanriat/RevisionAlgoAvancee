@@ -199,15 +199,15 @@ bool ArbreNoeudBinaireRecherche<TypeInfo>::estInfoPresenteWorker(NoeudBinaire<Ty
     if (ptrRac != nullptr) {
         if (infoCible < ptrRac->getInfo()) {
             return estInfoPresenteWorker(ptrRac->getPtrFilsGauche(), infoCible);
-        } else if (infoCible > ptrRac->getInfo()) 
+        } else if (infoCible > ptrRac->getInfo())
             return estInfoPresenteWorker(ptrRac->getPtrFilsDroit(), infoCible);
-        else 
+        else
             return true;
     } else
         return false;
 
 
-} 
+}
 
 
 //////////////////////////////////////////////////////////////
@@ -226,7 +226,7 @@ int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreDeFeuillesWorker(const NoeudB
     /*
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
-    
+
     if (ptrRac != nullptr) {
         if (ptrRac->getPtrFilsGauche() == nullptr && ptrRac->getPtrFilsDroit() == nullptr)
             return 1;
@@ -245,12 +245,12 @@ bool ArbreNoeudBinaireRecherche<TypeInfo>::aMemeGeometrieQueWorker(const NoeudBi
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
 
-    /*
-     * À COMPLETER : IMPLANTATION
-     */
-
-    // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
-    return true;
+    if (monPtrRac != nullptr) {
+        return aMemeGeometrieQueWorker()
+    } else {
+        return true;
+    }
+    
 
 }
 
@@ -266,14 +266,11 @@ TypeInfo ArbreNoeudBinaireRecherche<TypeInfo>::getMaxWorker(const NoeudBinaire<T
     /*
      * À COMPLETER : ALGORITHME  (NOTER LE, C'EST POUR VOUS !!!
      */
-
-    /*
-     * À COMPLETER : IMPLANTATION
-     */
-
-    // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
-    return 0;
-
+    if (ptrRac->getPtrFilsDroit() == nullptr) {
+        return ptrRac->getInfo();
+    } else {
+        return getMaxWorker(ptrRac->getPtrFilsDroit());
+    }
 }
 
 template<class TypeInfo>
@@ -287,10 +284,17 @@ int ArbreNoeudBinaireRecherche<TypeInfo>::getNombreOccurrencesWorker(const Noeud
     /*
      * À COMPLETER : IMPLANTATION
      */
-
-    // A ENLEVER LORSQUE L'IMPLANTATION EST FAITE !!
-    return 0;
-
+    if (ptrRac != nullptr) {
+        if (uneInfo < ptrRac->getInfo()) {
+            return getNombreOccurrencesWorker(ptrRac->getPtrFilsGauche(), uneInfo);
+        } else if (uneInfo == ptrRac->getInfo()) {
+            return getNombreOccurrencesWorker(ptrRac->getPtrFilsGauche(), uneInfo)+1;
+        } else {
+            return getNombreOccurrencesWorker(ptrRac->getPtrFilsDroit(), uneInfo);
+        }
+    } else {
+        return 0;        
+    }
 }
 
 //////////////////////////////////////////////////////////////
@@ -324,9 +328,9 @@ void ArbreNoeudBinaireRecherche<TypeInfo>::afficheInfixeWorker(const NoeudBinair
 
 
     if (ptrRac) {
-        affichePrefixeWorker(ptrRac->getPtrFilsGauche());
+        afficheInfixeWorker(ptrRac->getPtrFilsGauche());
         cout << ptrRac->getInfo() << " ";
-        affichePrefixeWorker(ptrRac->getPtrFilsDroit());
+        afficheInfixeWorker(ptrRac->getPtrFilsDroit());
     }
 }
 
@@ -340,8 +344,8 @@ void ArbreNoeudBinaireRecherche<TypeInfo>::affichePostfixeWorker(const NoeudBina
      */
 
     if (ptrRac) {
-        affichePrefixeWorker(ptrRac->getPtrFilsGauche());
-        affichePrefixeWorker(ptrRac->getPtrFilsDroit());
+        affichePostfixeWorker(ptrRac->getPtrFilsGauche());
+        affichePostfixeWorker(ptrRac->getPtrFilsDroit());
         cout << ptrRac->getInfo() << " ";
     }
 }
