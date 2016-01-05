@@ -9,6 +9,7 @@
 #include <algorithm>        // pour find_if
 #include <iostream>
 #include <cstdlib>
+#include <bits/forward_list.h>
 
 using namespace std;
 
@@ -33,11 +34,12 @@ bool estPair(int val) {
  *                   si il n'y a pas d'entier pair dans uneListe
  */
 forward_list<int>::iterator premierEntierPair(forward_list<int>& uneListe) {
-    /*
-     * A COMPLETER
-     */
-    // PUIS ENLEVER L'INSTRUCTION SUIVANTE
-    return uneListe.begin();
+    forward_list<int>::iterator it;
+    it = uneListe.begin();
+    while(it != uneListe.end() && !estPair(*it)) {
+        it++;
+    }
+    return it;
 }
 
 /**
@@ -51,11 +53,16 @@ forward_list<int>::iterator premierEntierPair(forward_list<int>& uneListe) {
  *                   si il n'y a pas de i-ème entier pair dans uneListe
  */
 forward_list<int>::iterator iemeEntierPair(forward_list<int>& uneListe, int i) {
-    /*
-     * A COMPLETER
-     */
-    // PUIS ENLEVER L'INSTRUCTION SUIVANTE
-    return uneListe.begin();
+    forward_list<int>::iterator it;
+    it = uneListe.begin();
+    int tmp = 0;
+    while (it != uneListe.end() && tmp < i) {
+        if (estPair(*it)) {
+            tmp++;
+        } 
+        it++;
+    }
+    return it;
 }
 
 int main() {
