@@ -132,6 +132,8 @@ int main() {
      * A COMPLETER
      */
     forward_list<string> uneListe = {"cinq", "quatre", "trois", "deux", "un", "zéro"};
+    forward_list<string>::iterator it;
+    forward_list<string> uneListeCopy;
     // Teste de la procédure d'affichage
     cout << "- La liste devrait contenir cinq quatre trois deux un zéro" << endl;
     cout << "- La liste contient -> ";
@@ -145,25 +147,32 @@ int main() {
     /*
      * A COMPLETER
      */
+    uneListe.clear();
     cout << "- La liste devrait être vide !" << endl;
     cout << "- La liste contient -> ";
     /*
      * A COMPLETER
      */
-
+    affiche(uneListe);
 
     // Séquence d'insertions en tête puis affichage
     cout << endl << "Insertions en tête de zéro, un, deux, trois, quatre, cinq" << endl;
     /*
      * A COMPLETER
      */
-
+    it = uneListe.insert_after(uneListe.before_begin(), "cinq");
+    it = uneListe.insert_after(it, "quatre");
+    it = uneListe.insert_after(it, "trois");
+    it = uneListe.insert_after(it, "deux");
+    it = uneListe.insert_after(it, "un");
+    it = uneListe.insert_after(it, "zéro");
+    
     cout << "- La liste devrait contenir cinq quatre trois deux un zéro" << endl;
     cout << "- La liste contient -> ";
     /*
      * A COMPLETER
      */
-
+    copieListe(uneListe, uneListeCopy);
     
     //  //!!\\ pas pour étudiants
     // recopie d'une liste existantes dans une nouvelle liste
@@ -176,28 +185,33 @@ int main() {
     /*
      * A COMPLETER
      */
-
+    
+    affiche(uneListe);
     cout << "- La liste copiée contient -> ";
     /*
      * A COMPLETER
      */
-
+    affiche(uneListeCopy);
 
     cout << endl << "Accès à la première valeur" << endl;
     /*
      * A COMPLETER
      */
-
+    
+    cout << getInfoAtPosit(uneListe, 1);
     cout << endl << "Accès à la deuxième valeur" << endl;
     /*
      * A COMPLETER
      */
+    cout << getInfoAtPosit(uneListe, 2);
 
     try {
         cout << endl << "Accès à une valeur non présente valeur" << endl;
     /*
      * A COMPLETER
      */
+        cout << getInfoAtPosit(uneListe, 7);
+
     } catch (PrecondVioleeExcep e) {
         cout << "  !!! CA C'EST MAL PASSEE, VOICI POURQUOI ---> " << endl;
         cout << e.what() << endl;
@@ -208,39 +222,46 @@ int main() {
     /*
      * A COMPLETER
      */
+    insereInfoAtPosit(uneListe, 0, "six");
     cout << "- La liste devrait contenir six cinq quatre trois deux un zéro" << endl;
     cout << "- La liste contient -> ";
     /*
      * A COMPLETER
      */
-
+    affiche(uneListe);
     
     cout << endl << "Insertion à la deuxième position entre six et cinq" << endl;
     /*
      * A COMPLETER
      */
+    insereInfoAtPosit(uneListe, 2, "cinqEtDemie");
+
     cout << "- La liste devrait contenir six six_cinq cinq quatre trois deux un zéro" << endl;
         cout << "- La liste contient -> ";
     /*
      * A COMPLETER
      */
-
+    affiche(uneListe);
 
     cout << endl << "Insertion à la dernière position après zéro" << endl;
     /*
      * A COMPLETER
      */
+    insereInfoAtPosit(uneListe, 9, "moinsUn");
+
     cout << "- La liste devrait contenir six six_cinq cinq quatre trois deux un zéro" << endl;
         cout << "- La liste contient -> ";
     /*
      * A COMPLETER
      */
-
+    affiche(uneListe);
+    
     try {
         cout << endl << "Insertion de trop_loin à la postion 11" << endl;
     /*
      * A COMPLETER
      */
+        insereInfoAtPosit(uneListe, 11, "trop_loin");
     } catch (PrecondVioleeExcep e) {
         cout << "  !!! CA C'EST MAL PASSEE, VOICI POURQUOI ---> " << endl;
         cout << e.what() << endl;
@@ -251,11 +272,13 @@ int main() {
     /*
      * A COMPLETER
      */
+    uneListeCopy.sort();
     cout << "- La liste devrait contenir cinq deux quatre trois un zéro" << endl;
         cout << "- La liste contient -> ";
     /*
      * A COMPLETER
      */
+    affiche(uneListeCopy);
 
 
     return 0;
