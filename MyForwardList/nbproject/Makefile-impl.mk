@@ -24,14 +24,14 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=TP21
+PROJECTNAME=MyForwardList
 
 # Active Configuration
 DEFAULTCONF=Debug
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=Debug Release testArbre 
+ALLCONFS=Debug Release premiercontact 
 
 
 # build

@@ -35,10 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/ArbreNoeudsBinairesRecherche.o \
-	${OBJECTDIR}/ExceptionPreconditionViolee.o \
-	${OBJECTDIR}/NoeudBinaire.o \
-	${OBJECTDIR}/testeArbreNœudBinaireRecherche.o
+	${OBJECTDIR}/PrecondVioleeExcep.o \
+	${OBJECTDIR}/autourdepair.o \
+	${OBJECTDIR}/autroudutri.o \
+	${OBJECTDIR}/premiercontact.o
 
 
 # C Compiler Flags
@@ -59,31 +59,31 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tp21
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/myforwardlist
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tp21: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/myforwardlist: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tp21 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/myforwardlist ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/ArbreNoeudsBinairesRecherche.o: ArbreNoeudsBinairesRecherche.cpp 
+${OBJECTDIR}/PrecondVioleeExcep.o: PrecondVioleeExcep.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ArbreNoeudsBinairesRecherche.o ArbreNoeudsBinairesRecherche.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PrecondVioleeExcep.o PrecondVioleeExcep.cpp
 
-${OBJECTDIR}/ExceptionPreconditionViolee.o: ExceptionPreconditionViolee.cpp 
+${OBJECTDIR}/autourdepair.o: autourdepair.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExceptionPreconditionViolee.o ExceptionPreconditionViolee.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/autourdepair.o autourdepair.cpp
 
-${OBJECTDIR}/NoeudBinaire.o: NoeudBinaire.cpp 
+${OBJECTDIR}/autroudutri.o: autroudutri.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NoeudBinaire.o NoeudBinaire.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/autroudutri.o autroudutri.cpp
 
-${OBJECTDIR}/testeArbreNœudBinaireRecherche.o: testeArbreNœudBinaireRecherche.cpp 
+${OBJECTDIR}/premiercontact.o: premiercontact.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/testeArbreNœudBinaireRecherche.o testeArbreNœudBinaireRecherche.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/premiercontact.o premiercontact.cpp
 
 # Subprojects
 .build-subprojects:
@@ -91,7 +91,7 @@ ${OBJECTDIR}/testeArbreNœudBinaireRecherche.o: testeArbreNœudBinaireRecherche.
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tp21
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/myforwardlist
 
 # Subprojects
 .clean-subprojects:
