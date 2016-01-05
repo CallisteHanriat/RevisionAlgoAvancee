@@ -30,6 +30,14 @@ CND_ARTIFACT_PATH_premiercontact=dist/premiercontact/GNU-Linux-x86/myforwardlist
 CND_PACKAGE_DIR_premiercontact=dist/premiercontact/GNU-Linux-x86/package
 CND_PACKAGE_NAME_premiercontact=myforwardlist.tar
 CND_PACKAGE_PATH_premiercontact=dist/premiercontact/GNU-Linux-x86/package/myforwardlist.tar
+# autourdepair configuration
+CND_PLATFORM_autourdepair=GNU-Linux-x86
+CND_ARTIFACT_DIR_autourdepair=dist/autourdepair/GNU-Linux-x86
+CND_ARTIFACT_NAME_autourdepair=myforwardlist
+CND_ARTIFACT_PATH_autourdepair=dist/autourdepair/GNU-Linux-x86/myforwardlist
+CND_PACKAGE_DIR_autourdepair=dist/autourdepair/GNU-Linux-x86/package
+CND_PACKAGE_NAME_autourdepair=myforwardlist.tar
+CND_PACKAGE_PATH_autourdepair=dist/autourdepair/GNU-Linux-x86/package/myforwardlist.tar
 #
 # include compiler specific variables
 #

@@ -31,7 +31,7 @@ DEFAULTCONF=Debug
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=Debug Release premiercontact 
+ALLCONFS=Debug Release premiercontact autourdepair 
 
 
 # build
