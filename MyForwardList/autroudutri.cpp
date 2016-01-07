@@ -37,15 +37,12 @@ bool estTriee(forward_list<T>& uneListe) {
     
     typename forward_list<T>::iterator suivantDebut = debut; 
     suivantDebut++;
-    while (suivantDebut != fin) {
-        if(*suivantDebut > *debut) {
-            return false;
-        }
+    while (suivantDebut != fin && *suivantDebut > *debut) {
         suivantDebut++;
         ++debut;
     }
     
-    return true;
+    return suivantDebut == fin;
     
     
     //ou alors 
