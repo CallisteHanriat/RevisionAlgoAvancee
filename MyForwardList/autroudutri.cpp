@@ -26,7 +26,6 @@ void affiche(forward_list<T> maListe) {
  */
 template<class T>
 bool estTriee(forward_list<T>& uneListe) {
-    
     typename forward_list<T>::iterator debut;
     typename forward_list<T>::iterator fin; 
     debut = uneListe.begin();
@@ -57,10 +56,33 @@ bool estTriee(forward_list<T>& uneListe) {
  */
 template<class T>
 forward_list<T> nouvelleListeTrieeSansDuplication(forward_list<T>& listeSource) {
-    /*
-     * A COMPLETER
-     */
-    // PUIS ENLEVER L'INSTRUCTION SUIVANTE
+    typename forward_list<T>::iterator debut;
+    typename forward_list<T>::iterator suivDebut;
+    typename forward_list<T>::iterator end;
+    
+    debut = listeSource.begin();
+    end = listeSource.end();
+    if(debut == end)
+        return listeSource;
+    suivDebut = debut;
+    suivDebut++;
+    //tant que le suivant du début n'est pas le dernier
+    while(suivDebut != end) {
+        //si la valeur du début est la même que sa suivante
+        if(*debut == *suivDebut) {
+            //on écrase le suivant du début
+            listeSource.erase_after(debut);
+            //le suivant vaut de nouveau le début
+            suivDebut = debut;
+        }
+        //sinon la valeur du début n'est pas la même que sa suivante
+        else{
+            //alors debut avance
+            debut++;
+        }
+        //le suivant avance
+        suivDebut++;
+    }
     return listeSource;
 }
 
