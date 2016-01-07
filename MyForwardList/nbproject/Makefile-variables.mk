@@ -38,6 +38,14 @@ CND_ARTIFACT_PATH_autourdepair=dist/autourdepair/GNU-Linux-x86/myforwardlist
 CND_PACKAGE_DIR_autourdepair=dist/autourdepair/GNU-Linux-x86/package
 CND_PACKAGE_NAME_autourdepair=myforwardlist.tar
 CND_PACKAGE_PATH_autourdepair=dist/autourdepair/GNU-Linux-x86/package/myforwardlist.tar
+# autourdutri configuration
+CND_PLATFORM_autourdutri=GNU-Linux-x86
+CND_ARTIFACT_DIR_autourdutri=dist/autourdutri/GNU-Linux-x86
+CND_ARTIFACT_NAME_autourdutri=myforwardlist
+CND_ARTIFACT_PATH_autourdutri=dist/autourdutri/GNU-Linux-x86/myforwardlist
+CND_PACKAGE_DIR_autourdutri=dist/autourdutri/GNU-Linux-x86/package
+CND_PACKAGE_NAME_autourdutri=myforwardlist.tar
+CND_PACKAGE_PATH_autourdutri=dist/autourdutri/GNU-Linux-x86/package/myforwardlist.tar
 #
 # include compiler specific variables
 #

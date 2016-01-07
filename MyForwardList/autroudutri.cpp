@@ -26,11 +26,30 @@ void affiche(forward_list<T> maListe) {
  */
 template<class T>
 bool estTriee(forward_list<T>& uneListe) {
-    /*
-     * A COMPLETER
-     */
-    // PUIS ENLEVER L'INSTRUCTION SUIVANTE
+    
+    typename forward_list<T>::iterator debut;
+    typename forward_list<T>::iterator fin; 
+    debut = uneListe.begin();
+    fin = uneListe.end();
+    
+    if(debut == fin)
+        return true;
+    
+    typename forward_list<T>::iterator suivantDebut = debut; 
+    suivantDebut++;
+    while (suivantDebut != fin) {
+        if(*suivantDebut > *debut) {
+            return false;
+        }
+        suivantDebut++;
+        ++debut;
+    }
+    
     return true;
+    
+    
+    //ou alors 
+    //return std::is_sorted(uneListe.begin(), uneListe.end());
 }
 
 /**
@@ -51,7 +70,7 @@ forward_list<T> nouvelleListeTrieeSansDuplication(forward_list<T>& listeSource) 
 int main(int argc, char** argv) {
     forward_list<int>::iterator iterListeInt;
     forward_list<int> listeTriee = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-    forward_list<int> listeVide = {};
+    forward_list<int> listeVide;
     forward_list<int> liste1Element = {2};
     forward_list<int> listeNonTriee = {1, 2, 3, 7, 6, 7, 8, 9, 10};
 
