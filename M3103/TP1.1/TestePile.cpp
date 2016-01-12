@@ -1,0 +1,208 @@
+/************************
+ *    ETUDIANT
+ ************************/
+
+
+#include <iostream>
+#include <string>
+#include "PileCellules.h"
+
+using namespace std;
+
+/**
+ * Une procédure modèle qui affiche une pile de n'importe quel type d'éléments
+ * ATTENTION il faut que les éléments puissent s'afficher sur cout
+ *            -> la classe T doit avoir pour ami l'opérateur de flux <<
+ * 
+ * @param unePile
+ */
+template<typename T>
+void affichePile(PileCellules<T> unePile) {
+    // dupliquer la pile pour faire un parcours destructif (depile) sur celle-ci
+    PileCellules<T>* pileTemporaire = new PileCellules<T>(unePile);
+    cout << "En partant du sommet pile contient -> ";
+    if (!pileTemporaire->estVide()) {
+        while (!pileTemporaire->estVide()) {
+            cout << pileTemporaire->consulteSommet() << " ";
+            pileTemporaire->depile();
+        }
+        cout << endl;
+    }
+} // end afficheListe
+
+void testEmpile() {
+    PileCellules<string> maPile;
+    cout << "DEBUT testEmpile()" << endl << endl;
+    cout << "  Liste vide ? : " << maPile.estVide() << " devrait répondre vrai (1) !" << endl << endl;
+    cout << "  empile zéro --> ";
+    maPile.empile("zero");
+    affichePile(maPile);
+    cout << "   - le sommet contient : " << maPile.consulteSommet() << endl;
+    cout << "  empile un --> ";
+    maPile.empile("un");
+    affichePile(maPile);
+    cout << "   - le sommet contient : " << maPile.consulteSommet() << endl;
+    cout << "  empile deux --> ";
+    maPile.empile("deux");
+    affichePile(maPile);
+    cout << "   - le sommet contient : " << maPile.consulteSommet() << endl;
+    cout << "  empile trois --> ";
+    maPile.empile("trois");
+    affichePile(maPile);
+    cout << "   - le sommet contient : " << maPile.consulteSommet() << endl;
+    cout << "  empile quatre --> ";
+    maPile.empile("quatre");
+    affichePile(maPile);
+    cout << "   - le sommet contient : " << maPile.consulteSommet() << endl;
+    cout << "  empile cinq --> ";
+    maPile.empile("cinq");
+    affichePile(maPile);
+    cout << "   - le sommet contient : " << maPile.consulteSommet() << endl;
+    cout << "  Liste vide ? : " << maPile.estVide() << " devrait répondre faux (0) !" << endl;
+    cout << endl << "FIN testEmpile()" << endl << endl;
+}
+
+void testDepile() {
+    cout << "DEBUT testDepile()" << endl << endl;
+    PileCellules<string> maPile;
+    cout << "  Remplissage de la liste --> ";
+    maPile.empile("zero");
+    maPile.empile("un");
+    maPile.empile("deux");
+    maPile.empile("trois");
+    maPile.empile("quatre");
+    maPile.empile("cinq");
+    affichePile(maPile);
+    cout << endl << "  3 consulteSommet() et depile()" << endl;
+    cout << "   ma pile actuelle --> ";
+    affichePile(maPile);
+    cout << "  sommet actuel : " << maPile.consulteSommet() << endl;
+    maPile.depile();
+    cout << "   ma pile actuelle --> ";
+    affichePile(maPile);
+    cout << "  sommet actuel : " << maPile.consulteSommet() << endl;
+    maPile.depile();
+    cout << "   ma pile actuelle --> ";
+    affichePile(maPile);
+    cout << "  sommet actuel : " << maPile.consulteSommet() << endl;
+    maPile.depile();
+    cout << "   ma pile actuelle --> ";
+    affichePile(maPile);
+    cout << "  sommet actuel : " << maPile.consulteSommet() << endl;
+    cout << endl << "FIN testDepile()" << endl << endl;
+}
+
+void testBorneDepile() {
+    cout << "DEBUT testBorneDepile()" << endl << endl;
+    PileCellules<string> maPile;
+    cout << "  Remplissage de la liste --> ";
+    maPile.empile("zero");
+    maPile.empile("un");
+    maPile.empile("deux");
+    maPile.empile("trois");
+    maPile.empile("quatre");
+    maPile.empile("cinq");
+    cout << "  ma pile actuelle -> ";
+    affichePile(maPile);
+    try {
+        // itération infinie de depile() ; dans la vraie vie il faut bien sûr éviter dde faire cela
+        while (true) {
+            maPile.depile();
+            cout << "  ma pile actuelle -> ";
+            affichePile(maPile);
+        }
+    } catch (PrecondVioleeExcep e) {
+        cout << "  !!! CA C'EST MAL PASSEE, VOICI POURQUOI ---> " << endl;
+        cout << e.what() << endl;
+        cout << "  !!! ENFIN ON A QUAND MEME RECUPERER LE COUP !" << endl;
+    }
+    cout << "  Liste vide ? : " << maPile.estVide() << " devrait répondre vrai (1) !" << endl << endl;
+    cout << "  tentative de consulation du sommet sur une liste vide" << endl << endl;
+    try {
+        // tentative 
+        maPile.consulteSommet();
+    } catch (PrecondVioleeExcep e) {
+        cout << "  !!! CA C'EST MAL PASSEE, VOICI POURQUOI ---> " << endl;
+        cout << e.what() << endl;
+        cout << "  !!! ENFIN ON A QUAND MEME RECUPERER LE COUP !" << endl;
+    }
+
+    cout << endl << "FIN testBorneDepile()" << endl << endl;
+}
+
+int main() {
+    /*
+     * Décommenter une par une chaque procédure quand vous êtes prêt à
+     * l'exécuter
+     */
+    /*
+     * UNE TRACE DU RESULTAT A OBTENIR EST PROPOSEE EN FIN DE FICHIER
+     */
+
+
+    testEmpile();
+    testDepile();
+    testBorneDepile();
+    return 0;
+} // end main
+
+/*
+ DEBUT testEmpile()
+
+  Liste vide ? : 1 devrait répondre vrai (1) !
+
+  empile zéro --> En partant du sommet pile contient -> zero
+   - le sommet contient : zero
+  empile un --> En partant du sommet pile contient -> un zero 
+   - le sommet contient : un
+  empile deux --> En partant du sommet pile contient -> deux un zero 
+   - le sommet contient : deux
+  empile trois --> En partant du sommet pile contient -> trois deux un zero 
+   - le sommet contient : trois
+  empile quatre --> En partant du sommet pile contient -> quatre trois deux un zero 
+   - le sommet contient : quatre
+  empile cinq --> En partant du sommet pile contient -> cinq quatre trois deux un zero 
+   - le sommet contient : cinq
+  Liste vide ? : 0 devrait répondre faux (0) !
+
+FIN testEmpile()
+
+DEBUT testDepile()
+
+  Remplissage de la liste --> En partant du sommet pile contient -> cinq quatre trois deux un zero 
+
+  3 consulteSommet() et depile()
+   ma pile actuelle --> En partant du sommet pile contient -> cinq quatre trois deux un zero 
+  sommet actuel : cinq
+   ma pile actuelle --> En partant du sommet pile contient -> quatre trois deux un zero 
+  sommet actuel : quatre
+   ma pile actuelle --> En partant du sommet pile contient -> trois deux un zero 
+  sommet actuel : trois
+   ma pile actuelle --> En partant du sommet pile contient -> deux un zero 
+  sommet actuel : deux
+
+FIN testDepile()
+
+DEBUT testBorneDepile()
+
+  Remplissage de la liste -->   ma pile actuelle -> En partant du sommet pile contient -> cinq quatre trois deux un zero 
+  ma pile actuelle -> En partant du sommet pile contient -> quatre trois deux un zero 
+  ma pile actuelle -> En partant du sommet pile contient -> trois deux un zero 
+  ma pile actuelle -> En partant du sommet pile contient -> deux un zero 
+  ma pile actuelle -> En partant du sommet pile contient -> un zero 
+  ma pile actuelle -> En partant du sommet pile contient -> zero 
+  ma pile actuelle -> En partant du sommet pile contient -> 
+  !!! CA C'EST MAL PASSEE, VOICI POURQUOI ---> 
+Exception pour précondition violée : méthode depile() appelée sur une pile vide !
+  !!! ENFIN ON A QUAND MEME RECUPERER LE COUP !
+  Liste vide ? : 1 devrait répondre vrai (1) !
+
+  tentative de consulation du sommet sur une liste vide
+
+  !!! CA C'EST MAL PASSEE, VOICI POURQUOI ---> 
+Exception pour précondition violée : méthode consulteSommet() appelée sur une pile vide !
+  !!! ENFIN ON A QUAND MEME RECUPERER LE COUP !
+
+FIN testBorneDepile()
+
+ */
