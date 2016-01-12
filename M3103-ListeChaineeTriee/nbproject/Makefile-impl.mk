@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=My_Set
+PROJECTNAME=M3103-ListeChaineeTriee
 
 # Active Configuration
 DEFAULTCONF=Debug

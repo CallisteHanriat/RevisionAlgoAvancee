@@ -43,9 +43,6 @@ bool estTriee(forward_list<T>& uneListe) {
     
     return suivantDebut == fin;
     
-    
-    //ou alors 
-    //return std::is_sorted(uneListe.begin(), uneListe.end());
 }
 
 /**
