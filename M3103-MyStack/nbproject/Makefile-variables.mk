@@ -22,6 +22,14 @@ CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/m3103-mystack
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
 CND_PACKAGE_NAME_Release=m3103-mystack.tar
 CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/m3103-mystack.tar
+# PremierContact configuration
+CND_PLATFORM_PremierContact=GNU-Linux-x86
+CND_ARTIFACT_DIR_PremierContact=dist/PremierContact/GNU-Linux-x86
+CND_ARTIFACT_NAME_PremierContact=m3103-mystack
+CND_ARTIFACT_PATH_PremierContact=dist/PremierContact/GNU-Linux-x86/m3103-mystack
+CND_PACKAGE_DIR_PremierContact=dist/PremierContact/GNU-Linux-x86/package
+CND_PACKAGE_NAME_PremierContact=m3103-mystack.tar
+CND_PACKAGE_PATH_PremierContact=dist/PremierContact/GNU-Linux-x86/package/m3103-mystack.tar
 #
 # include compiler specific variables
 #

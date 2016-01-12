@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>PrecondVioleeExcep.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +13,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>PrecondVioleeExcep.cpp</itemPath>
+      <itemPath>bienparenthesee.cpp</itemPath>
+      <itemPath>premiercontact.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -35,6 +39,14 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="PrecondVioleeExcep.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PrecondVioleeExcep.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="bienparenthesee.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="premiercontact.cpp" ex="false" tool="1" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -56,6 +68,37 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="PrecondVioleeExcep.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PrecondVioleeExcep.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="bienparenthesee.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="premiercontact.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="PremierContact" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
+      </compileType>
+      <item path="PrecondVioleeExcep.cpp" ex="true" tool="1" flavor2="8">
+        <ccTool>
+          <stripSymbols>false</stripSymbols>
+        </ccTool>
+      </item>
+      <item path="PrecondVioleeExcep.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="bienparenthesee.cpp" ex="true" tool="1" flavor2="8">
+      </item>
+      <item path="premiercontact.cpp" ex="false" tool="1" flavor2="8">
+      </item>
     </conf>
   </confs>
 </configurationDescriptor>

@@ -23,7 +23,7 @@ AS=as
 # Macros
 CND_PLATFORM=GNU-Linux-x86
 CND_DLIB_EXT=so
-CND_CONF=Release
+CND_CONF=PremierContact
 CND_DISTDIR=dist
 CND_BUILDDIR=build
 
@@ -35,8 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/PrecondVioleeExcep.o \
-	${OBJECTDIR}/bienparenthesee.o \
 	${OBJECTDIR}/premiercontact.o
 
 
@@ -64,20 +62,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/m3103-mystack: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/m3103-mystack ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/PrecondVioleeExcep.o: PrecondVioleeExcep.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PrecondVioleeExcep.o PrecondVioleeExcep.cpp
-
-${OBJECTDIR}/bienparenthesee.o: bienparenthesee.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/bienparenthesee.o bienparenthesee.cpp
-
 ${OBJECTDIR}/premiercontact.o: premiercontact.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/premiercontact.o premiercontact.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/premiercontact.o premiercontact.cpp
 
 # Subprojects
 .build-subprojects:
